@@ -1,10 +1,7 @@
-<p style="color: green"><%= notice %></p>
-
+<div class="container bg-secondary-subtle px-5 py-3 rounded-4 shadow">
 <%= render @book %>
+  <%= link_to "Edit", edit_book_path(@book), class:"btn btn-secondary my-3"%> 
+  <%= link_to "Back", books_path, class:"btn btn-secondary my-3"%>
 
-<div>
-  <%= link_to "Edit this book", edit_book_path(@book) %> |
-  <%= link_to "Back to books", books_path %>
-
-  <%= button_to "Destroy this book", @book, method: :delete %>
+  <%= button_to "Delete book", @book, method: :delete, class:"btn btn-danger mb-3" %>
 </div>

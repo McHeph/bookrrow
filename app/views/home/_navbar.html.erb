@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <%= link_to 'Bookrrow', root_path, class:"navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <%= link_to 'Home', root_path, class: active_class(root_path) %>
+          </li>
+
+          <% if user_signed_in? %>
+
+          <li class="nav-item">
+            <%= link_to 'Books', books_path, class: active_class(books_path) %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Edit Profile', edit_user_registration_path, class: active_class(edit_user_registration_path) %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Log Out', destroy_user_session_path, data: {turbo_method: :delete}, class:"nav-link"%>
+          </li>
+
+          <% else %>
+
+          <li class="nav-item">
+            <%= link_to 'Sign Up', new_user_registration_path, class: active_class(new_user_registration_path) %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Log In', new_user_session_path, class: active_class(new_user_session_path) %>
+          </li>
+
+          <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
